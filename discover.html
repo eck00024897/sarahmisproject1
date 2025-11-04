@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discover UMD - Sarah Eck</title>
+    <meta name="description" content="Discover why Sarah Eck chose University of Minnesota Duluth for Business Analytics and the unique opportunities Duluth offers.">
+    <meta name="author" content="Sarah Eck">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
+        <div class="nav-container">
+            <h1>Sarah Eck</h1>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="hobbies.html">Hobbies</a></li>
+                <li><a href="discover.html">Discover UMD</a></li>
+                <li><a href="resume.html">Resume</a></li>
+                <li><a href="career.html">Career</a></li>
+                <li><a href="game.html">Interactive Game</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-container">
+        <!-- UMD Choice Section -->
+        <section class="section fade-in">
+            <h2 class="section-title">Why UMD?</h2>
+            <div class="card">
+                <p>I chose UMD because of its unique blend of natural beauty and city opportunities, and I'm excited to meet more people here and try new things. Besides this, I have an aunt who lives in Duluth, so I have family close by in case I need it! I also really like UMD’s campus and layout for accessibility in the winter. Along with this accessibility, UMD's ability and motivation to provide vegetarian food stood out to me.</p>
+            </div>
+        </section>
+
+        <!-- Duluth Area Section -->
+        <section class="section fade-in">
+            <h2 class="section-title">Life in Duluth</h2>
+            <div class="duluth-grid">
+                    <div class="card duluth-card">                    
+                        <img src="images/IMG_3230.jpg" alt="Beautiful scenic view of Duluth waterfront and surrounding nature" class="img-responsive">
+                        <h3>The Beauty of Duluth</h3>
+                        <p>Duluth's stunning views of the lake, fall colors, and rolling hills. </p>
+                    </div>
+                    <div class="card duluth-card">
+                        <img src="images/IMG_3341.jpg" alt="Beautiful scenic view of Duluth waterfront and surrounding nature" class="img-responsive">
+                        <h3>Experiences in Duluth</h3>
+                        <p>Coming from a small town, Duluth offers many new possibilities for me. These opportunities can be in hobbies, such as rock climbing, academically, with the Analytics club and the AACSB accreditation, or professionally, with many central headquarters located in Duluth offering positions and internships.</p>
+                    </div>
+            </div>
+        </section>
+
+        <!-- Marketing Video Section -->
+        <section class="section fade-in">
+            <h2 class="section-title">Experience Duluth</h2>
+            <div class="card">
+                <div style="position: relative; padding-bottom: 56.25%; height: 0; border-radius: 8px; overflow: hidden; background: #000;">
+                    <video 
+                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 8px;"
+                        controls
+                        preload="auto">
+                        <source src="videos/Duluth-marketing video (1).mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <p style="margin-top: 1rem;">Experience the beauty and opportunities of Duluth through our showcase video.</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2025 Sarah Eck. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Add fade-in animation when elements come into view
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                }
+            });
+        });
+
+        document.querySelectorAll('.fade-in').forEach((el) => observer.observe(el));
+    </script>
+    <script src="js/mobile-nav.js"></script>
+</body>
+</html>

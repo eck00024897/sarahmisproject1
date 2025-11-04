@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hobbies - Sarah Eck</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
+        <div class="nav-container">
+            <h1>Sarah Eck</h1>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="hobbies.html">Hobbies</a></li>
+                <li><a href="discover.html">Discover UMD</a></li>
+                <li><a href="resume.html">Resume</a></li>
+                <li><a href="career.html">Career</a></li>
+                <li><a href="game.html">Interactive Game</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-container">
+        <section class="section fade-in">
+            <h2 class="section-title">My Hobbies & Interests</h2>
+            
+            <!-- Hobby 1 -->
+            <div class="card">
+                <div class="grid">
+                    <div>
+                        <img src="images/IMG_0802.jpg" alt="Crocheting project showing colorful yarn and handmade items" class="img-responsive">
+                    </div>
+                    <div>
+                        <h2>Crocheting</h2>
+                        <p>While crocheting is one of my hobbies, it has a deeper meaning to my identity. All throughout my life, I have loved crafts for their creative freedom and problem-solving tendencies. Growing up, I found different forms of this expression, whether through sewing, painting, D.I.Y. projects, baking, or now crocheting, the process of engaging in these projects has helped me develop a strong sense of evaluation, logical thinking, quick problem-solving, and artistic expression. It has allowed me to become more in tune with myself and to enhance and discover parts of my identity that were buried under stress and expectations.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hobby 2 -->
+            <div class="card">
+                <div class="grid">
+                    <div>
+                        <img src="images/IMG_1023.JPG" alt="Dancing with friends at a performance or event" class="img-responsive">
+                    </div>
+                    <div>
+                        <h2>Dancing</h2>
+                        <p>One of my favorite things to participate in is dance. I enjoy dancing, whether by myself or with my friends. Dance allows me to live in the moment and let go of all my stressors in exchange for peace, happiness, and enjoyable music. It brings me immense joy and creativity in my life, while also helping me alleviate my daily hassles. Through dance, I have made many friends with whom I continue to stay in regular contact, even as distance separates us.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hobby 3 -->
+            <div class="card">
+                <div class="grid">
+                    <div>
+                        <img src="images/IMG_7814.jpg" alt="Rock climbing at UMD climbing wall or outdoor location" class="img-responsive">
+                    </div>
+                    <div>
+                        <h2>Rock Climbing</h2>
+                        <p>Rock climbing is a new hobby of mine that I have picked up while studying at UMD. It is important to me because my mom and dad used to rock climb, so it feels like I am holding a piece of them with me as I climb. I also enjoy it because I have to focus while climbing. I use my entire body and mind to climb, not letting myself get distracted by anxiety. I am not afraid of heights; instead, I feel empowered by it. </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2025 Sarah Eck. All rights reserved.</p>
+        </div>
+    </footer>
+    <script>
+        // Add fade-in animation when elements come into view
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                }
+            });
+        });
+
+        document.querySelectorAll('.fade-in').forEach((el) => observer.observe(el));
+    </script>
+    <script src="js/mobile-nav.js"></script>
+</body>
+</html>

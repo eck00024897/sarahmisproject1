@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career Interests - Sarah Eck</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
+        <div class="nav-container">
+            <h1>Sarah Eck</h1>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="hobbies.html">Hobbies</a></li>
+                <li><a href="discover.html">Discover UMD</a></li>
+                <li><a href="resume.html">Resume</a></li>
+                <li><a href="career.html">Career</a></li>
+                <li><a href="game.html">Interactive Game</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-container">
+        <section class="section fade-in">
+            <h2 class="section-title">Career Interests</h2>
+            
+            <!-- Company 1 -->
+            <div class="card">
+                <h3>ALLETE</h3>
+                <div class="grid">
+                    <div>
+                    </img src="img_20251020.jpg" class="img-responsive">
+                    </div>
+                    <div>
+                        <h4>Internship - Business Intelligence</h4>
+                        <p>This is an ideal position for me at Minnesota Power, an ALLETE company in Duluth, MN. This particular location is focused on sustainability and the actions needed to help ALLETE as a whole.</p>
+                        
+                        <h4>Why This Company?</h4>
+                        <p> This internship would give me experience in sustainability and business analytics, and it fits the description of my desired future career. My interests in analytics, details, and organization align directly with their needs.</p>
+                        
+                        <h4>My Qualifications</h4>
+                        <p> I fit the requirements with an expected graduation date of May 2027, with a Bachelor’s degree in Business Analytics, and will soon be qualified in business Excel courses.</p>
+                        
+                        <h4>Contact Information</h4>
+                        <p>Company Address: 30 W Superior St, Duluth, MN 55802<br>
+                        Phone: (218) 279-5000<br>
+                        Website: https://www.allete.com/OurBusinesses</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Company 2 -->
+            <div class="card">
+                <h3>MSPbots.ai</h3>
+                <div class="grid">
+                    <div>
+                        <img src="https://via.placeholder.com/400x300/8b7355/ffffff?text=Company+Logo" alt="Analytics consulting company logo" class="img-responsive">
+                    </div>
+                    <div>
+                        <h4>Data Analyst Intern</h4>
+                        <p>Remote work as a Data analyst Intern for MSPbots in Chicago, Illinois.</p>
+                        
+                        <h4>Why This Company?</h4>
+                        <p> Their ideal qualities align with my skills in communication and computer tools.</p>
+                        
+                        <h4>My Qualifications</h4>
+                        <p>This position is ideal for me because it would give me experience in how AI affects the data analysis world. It is remote, so I could stay in my location, and I would be able to practice data analytics with experienced team members.</p>
+                        
+                        <h4>Contact Information</h4>
+                        <p>Company Address: 190 S LaSalle St, CHicago, IL 60603<br>
+                        Phone: (312) 205-5608<br>
+                        Website: https://www.mspbots.ai/story-mission-vision</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2025 Sarah Eck. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Add fade-in animation when elements come into view
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                }
+            });
+        });
+
+        document.querySelectorAll('.fade-in').forEach((el) => observer.observe(el));
+    </script>
+    <script src="js/mobile-nav.js"></script>
+</body>
+</html>
