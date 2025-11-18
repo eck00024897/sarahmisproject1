@@ -1,10 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Game - Sarah Eck</title>
+    <meta name="author" content="Sarah Eck">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/effects.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
 <body>
     <!-- Navigation -->
     <nav class="navbar" role="navigation" aria-label="Main navigation">
         <div class="nav-container">
             <h1>Sarah Eck</h1>
+            <button class="hamburger" aria-label="Toggle navigation menu">
+                <i class="fas fa-bars"></i>
+            </button>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="hobbies.html">Hobbies</a></li>
@@ -15,15 +29,6 @@
             </ul>
         </div>
     </nav>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interactive Game - Sarah Eck</title>
-    <meta name="author" content="Sarah Eck">
-    <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Maze Game - Find Your Way Out!</title>
@@ -58,7 +63,7 @@
 
         body {
             font-family: 'Segoe UI', arial, sans-serif;
-            background: #cc8672
+            background: #cc8672;
             min-height: 100vh;
             color: var(--text-color);
             display: flex;
@@ -384,41 +389,65 @@
         }
 
 
+        /* Footer Styles */
+        .footer {
+            background-color: var(--secondary-bg);
+            padding: 2rem 0;
+            margin-top: 4rem;
+            width: 100%;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            text-align: center;
+        }
+
         @media (max-width: 768px) {
             .game-container {
                 padding: 20px;
             }
 
-
             .game-title {
                 font-size: 2rem;
             }
 
-
             .game-stats {
                 gap: 15px;
             }
-
 
             .stat {
                 min-width: 100px;
                 padding: 8px 16px;
             }
 
-
             .control-buttons {
                 flex-direction: column;
                 align-items: center;
             }
 
-
             .btn {
                 width: 200px;
+            }
+
+            .footer {
+                padding: 1.5rem 0;
+                margin-top: 3rem;
             }
         }
     </style>
 </head>
 <body>
+    <div class="floating-shapes"></div>
+    <!-- Audio Elements -->
+    <audio id="backgroundMusic" loop>
+        <source src="audio/withyou.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="victorySound">
+        <source src="audio/magicchime.mp3" type="audio/mpeg">
+    </audio>
+
     <div class="game-container">
         <div class="game-header">
             <h1 class="game-title">🎮 Maze Adventure</h1>
@@ -493,18 +522,23 @@
             <button class="btn btn-done" id="playAgainBtn">
                 <i class="fas fa-redo"></i> Play Again
             </button>
-            <audi
         </div>
     </div>
 
- <!-- Footer -->
+    <!-- Footer -->
     <footer class="footer">
         <div class="footer-content">
             <p>&copy; 2025 Sarah Eck. All rights reserved.</p>
         </div>
     </footer>
 
+   
     <script>
+        // Initialize hamburger menu
+        document.querySelector('.hamburger').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+
         class MazeGame {
             constructor() {
                 this.canvas = document.getElementById('mazeCanvas');
@@ -562,7 +596,13 @@
                 document.getElementById('newGameBtn').addEventListener('click', () => this.newGame());
                 document.getElementById('pauseBtn').addEventListener('click', () => this.togglePause());
                 document.getElementById('hintBtn').addEventListener('click', () => this.showHint());
-                document.getElementById('playAgainBtn').addEventListener('click', () => this.newGame());
+                document.getElementById('playAgainBtn').addEventListener('click', () => {
+                    // Stop victory sound if it's still playing
+                    const victorySound = document.getElementById('victorySound');
+                    victorySound.pause();
+                    victorySound.currentTime = 0;
+                    this.newGame();
+                });
                 document.getElementById('difficulty').addEventListener('change', (e) => {
                     this.difficulty = e.target.value;
                     this.newGame();
@@ -923,18 +963,30 @@
                 this.generateMaze();
                 this.startTimer();
                 this.updateStats();
+                
+                // Start background music
+                const bgMusic = document.getElementById('backgroundMusic');
+                bgMusic.volume = 0.5; // Set volume to 50%
+                bgMusic.currentTime = 0; // Reset to beginning
+                bgMusic.play();
             }
 
 
             togglePause() {
                 this.gamePaused = !this.gamePaused;
                 const pauseBtn = document.getElementById('pauseBtn');
+                const bgMusic = document.getElementById('backgroundMusic');
+                
                 if (this.gamePaused) {
                     pauseBtn.innerHTML = '<i class="fas fa-play"></i> Resume';
                     pauseBtn.className = 'btn btn-success';
+                    bgMusic.pause(); // Pause background music
                 } else {
                     pauseBtn.innerHTML = '<i class="fas fa-pause"></i> Pause';
                     pauseBtn.className = 'btn btn-warning';
+                    if (this.gameRunning) {
+                        bgMusic.play(); // Resume background music
+                    }
                 }
             }
 
@@ -965,6 +1017,14 @@
                 document.getElementById('finalMoves').textContent = this.moves;
                 document.getElementById('finalLevel').textContent =
                     document.getElementById('level').textContent;
+               
+                // Stop background music and play victory sound
+                const bgMusic = document.getElementById('backgroundMusic');
+                const victorySound = document.getElementById('victorySound');
+                bgMusic.pause();
+                victorySound.currentTime = 0;
+                victorySound.volume = 0.6;
+                victorySound.play();
                
                 // Show level-specific congratulations message
                 this.showLevelCongratulations();
@@ -1034,6 +1094,5 @@
             new MazeGame();
         });
     </script>
-
 </body>
 </html>

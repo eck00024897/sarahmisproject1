@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hobbies - Sarah Eck</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/effects.css">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -289,14 +290,14 @@
 
             <div class="info-cards">
                 <div class="card">
-                    <img src="images/66034.jpg" alt="Sarah" class="profile-img">
+                    <img src="images/66034.jpg" alt="Headshot of Sarah Eck" class="profile-img">
                 </div>
                 <div class="text-cards">
                     <div class="card">
-                            <p>Aspiring to be a Business Intelligence Analyst for a conservation corporation.</p>
+                            <p>I am studying Business Analytics with a minor in Sustainability. With this I aspire to become a Business Intelligence Analyst for a conservation corporation.</p>
                     </div>
                     <div class="card">
-                            <p>I am studying Business Analytics with a minor in Sustainability.</p>
+                            <p>Sustainability is vital in business, and I'm excited to make a postive change!</p>
                     </div>
                 </div>
             </div>
@@ -305,9 +306,49 @@
     <div class="container">
         <div class="floating-shapes"></div>
         <div class="video-card">
-            <div class="info-cards">
-                <div class="card" class= image-repsonsive>
-                    <video 
+            <div class="two-cards">
+                    <h1>Hobbies</h1>
+                <div class="card">
+                    <div class="grid">
+                        <div>
+                            <img src="images/IMG_4142.jpg" alt="Crocheting project" class="img-responsive">
+                        </div>
+                        <div>
+                            <h2>Crocheting</h2>
+                            <p>I love crocheting because it allows me to express my creativity and unwind after a long day.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="grid">
+                        <div>
+                            <img src="images/IMG_1536.jpg" alt="Rock climbing" class="img-responsive">
+                        </div>
+                        <div>
+                            <h2>Rock Climbing</h2>
+                            <p>I enjoy rock climbing because it is a fun way to get stronger and hang out with friends!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="floating-shapes"></div>
+        <div class="video-card">
+            <div class="card">
+                <div class="video-wrapper">
+                    <video
+                        controls
+                        muted
+                        playsinline
+                        preload="auto"
+                        class="responsive-video">
+                        <source src="videos/IMG_5560.mov" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
                 </div>
             </div>
         </div>
@@ -322,27 +363,6 @@
     </footer>
 
     <script>
-        // Create floating shapes
-        function createShapes() {
-            const shapes = document.querySelector('.floating-shapes');
-            for (let i = 0; i < 5; i++) {
-                const shape = document.createElement('div');
-                shape.className = 'shape';
-                shape.style.width = Math.random() * 200 + 50 + 'px';
-                shape.style.height = shape.style.width;
-                shape.style.left = Math.random() * 100 + '%';
-                shape.style.top = Math.random() * 100 + '%';
-                shape.style.animationDelay = Math.random() * 5 + 's';
-                shapes.appendChild(shape);
-            }
-        }
-        createShapes();
-
-        // Theme toggling
-        function toggleTheme() {
-            document.body.classList.toggle('dark-mode');
-        }
-
         // Interactive message
         function showMessage(type) {
             const messages = {
@@ -351,47 +371,8 @@
             };
             alert(messages[type]);
         }
-
-        // Cursor trail effect
-        let trails = [];
-        const maxTrails = 20;
-
-        function createTrail(e) {
-            const trail = document.createElement('div');
-            trail.className = 'cursor-trail';
-            trail.style.left = e.clientX + 'px';
-            trail.style.top = e.clientY + 'px';
-            document.body.appendChild(trail);
-            
-            trails.push({
-                element: trail,
-                x: e.pageX,
-                y: e.pageY,
-                alpha: 1
-            });
-
-            if (trails.length > maxTrails) {
-                const removed = trails.shift();
-                removed.element.remove();
-            }
-        }
-
-        function updateTrails() {
-            trails.forEach((trail, index) => {
-                trail.alpha *= 0.92;
-                trail.element.style.opacity = trail.alpha;
-                
-                if (trail.alpha < 0.01) {
-                    trail.element.remove();
-                    trails.splice(index, 1);
-                }
-            });
-            requestAnimationFrame(updateTrails);
-        }
-
-        document.addEventListener('mousemove', createTrail);
-        updateTrails();
     </script>
+    <script src="js/effects.js"></script>
     <script src="js/interactive.js"></script>
     <script src="js/mobile-nav.js"></script>
     

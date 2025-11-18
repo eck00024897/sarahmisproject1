@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resume - Sarah Eck</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/effects.css">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         .resume-section {
@@ -28,6 +29,7 @@
     </style>
 </head>
 <body>
+    <div class="floating-shapes"></div>
     <!-- Navigation -->
     <nav class="navbar" role="navigation" aria-label="Main navigation">
         <div class="nav-container">
@@ -47,14 +49,14 @@
     <main class="main-container">
         <section class="section fade-in">
             <div style="text-align: right; margin-bottom: 2rem;">
-                <a href="resume (5).pdf" download class="btn btn-primary">
+                <a href="files/resume (5).pdf" download class="btn btn-primary">
                     Download PDF Version
                 </a>
             </div>
             <h1 class="section-title">My Resume</h1>
-        <div class="card">
-            <img src="images/Screenshot 2025-10-30 204141.png" alt="Sarah Eck's resume">
-        </div>
+            <div class="card" style="padding: 1rem; overflow: hidden;">
+                <img src="images/Screenshot 2025-10-30 204141.png" alt="Sarah Eck's resume">
+            </div>
         </section>
     </main>
 
@@ -77,6 +79,7 @@
 
         document.querySelectorAll('.fade-in').forEach((el) => observer.observe(el));
     </script>
+    <script src="js/effects.js"></script>
     <script src="js/mobile-nav.js"></script>
 </body>
 </html>

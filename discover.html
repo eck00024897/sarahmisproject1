@@ -8,9 +8,11 @@
     <meta name="author" content="Sarah Eck">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/effects.css">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div class="floating-shapes"></div>
     <!-- Navigation -->
     <nav class="navbar" role="navigation" aria-label="Main navigation">
         <div class="nav-container">
@@ -43,7 +45,7 @@
                     <div class="card duluth-card">                    
                         <img src="images/IMG_3230.jpg" alt="Beautiful scenic view of Duluth waterfront and surrounding nature" class="img-responsive">
                         <h3>The Beauty of Duluth</h3>
-                        <p>Duluth's stunning views of the lake, fall colors, and rolling hills. </p>
+                        <p>Duluth's stunning views of the lake, fall colors, and rolling hills draw mnay tourists and vistors to see the beautiful land. </p>
                     </div>
                     <div class="card duluth-card">
                         <img src="images/IMG_3341.jpg" alt="Beautiful scenic view of Duluth waterfront and surrounding nature" class="img-responsive">
@@ -57,16 +59,17 @@
         <section class="section fade-in">
             <h2 class="section-title">Experience Duluth</h2>
             <div class="card">
-                <div style="position: relative; padding-bottom: 56.25%; height: 0; border-radius: 8px; overflow: hidden; background: #000;">
+                <div class="video-wrapper">
                     <video 
-                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 8px;"
-                        controls
-                        preload="auto">
-                        <source src="videos/Duluth-marketing video (1).mp4" type="video/mp4">
+                        controls 
+                        muted 
+                        playsinline 
+                        preload="auto" 
+                        class="responsive-video">
+                        <source src="videos/Dultuh-Marketing-Video1.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                 </div>
-                <p style="margin-top: 1rem;">Experience the beauty and opportunities of Duluth through our showcase video.</p>
             </div>
         </section>
     </main>
@@ -90,6 +93,7 @@
 
         document.querySelectorAll('.fade-in').forEach((el) => observer.observe(el));
     </script>
+    <script src="js/effects.js"></script>
     <script src="js/mobile-nav.js"></script>
 </body>
 </html>
