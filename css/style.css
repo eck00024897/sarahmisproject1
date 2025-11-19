@@ -43,7 +43,7 @@ h3 {
 }
 
 h4 {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     font-weight: 500;
     margin-bottom: 0.5rem;
 }
@@ -273,6 +273,69 @@ p {
     gap: 2rem;
     grid-template-columns: 300px 1fr;
     align-items: start;
+}
+
+/* Resume grid: 2x2 cards for education, experience, skills, coursework */
+.resume-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    align-items: stretch;
+    width: 100%;
+}
+
+.resume-grid .card {
+    display: flex;
+    flex-direction: column;
+    padding: 1.25rem;
+    min-height: 180px;
+}
+
+/* Resume card heading and list adjustments */
+.resume-grid .card h3 {
+    margin: 0 0 0.6rem 0;
+    color: var(--accent-1);
+}
+
+.resume-grid .card h4 {
+    margin: 0.6rem 0 0.4rem 0;
+    font-size: 1rem;
+    color: var(--accent-1);
+    font-weight: 600;
+}
+
+.resume-grid .card ul {
+    margin: 0.25rem 0 0 1.6rem; /* push bullets to the right under headings */
+    padding-left: 0.9rem; /* ensure marker visibility */
+}
+
+.resume-grid .card ul li {
+    margin-bottom: 0.45rem;
+}
+
+/* Skill badges (pills) */
+.skill-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.badge {
+    display: inline-block;
+    background: var(--accent-2);
+    color: var(--text-primary);
+    padding: 0.35rem 0.75rem;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+}
+
+@media (max-width: 768px) {
+    .resume-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* Image container for hobbies */
